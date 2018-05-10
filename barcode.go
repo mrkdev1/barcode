@@ -17,7 +17,8 @@ func main() {
         log.Fatal(err)
     }
     lines := strings.Split(string(bar), "\n")
-
+	fmt.Println (len(lines)-1)
+	
     file := string(os.Args[2])
 	
     content, err := ioutil.ReadFile(file)
@@ -34,8 +35,14 @@ func main() {
 	
 //	fmt.Println(lines[0] + " (input)\n" + s)
 
-	for i := 1; i < (len(lines)-1); i++ {
+    sum := 0
+	for i := 1; i < (len(lines)); i++ {
 	found := strings.Contains(s, lines[i])
-	fmt.Println (found)
+	if found {
+	sum = sum + 1
 	}
+	fmt.Println (found)
+	fmt.Println (sum)
+	}	
+	fmt.Println (float64(sum)/float64(len(lines)-1))
 }
